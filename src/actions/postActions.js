@@ -1,9 +1,13 @@
+import { FETCH_POSTS } from './types';
+import axios from 'axios';
 
-
-
-
-const fetchPosts = () => {
-	axios.get().then(res => {
-		console.log(res.data);
-	});
+export const fetchPosts = () => {
+	return function(dispatch) {
+		axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
+			dispatch({
+				type: FETCH_POSTS,
+				payload: res.data
+			});
+		});
+	};
 };
