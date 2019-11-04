@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/postActions';
+import { fetchPosts } from '../redux/actions/postActions';
 
-class PostsPage extends Component {
+class HomePage extends Component {
 	componentWillMount() {
 		this.props.fetchPosts();
 	}
@@ -29,4 +29,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ fetchPosts }
-)(PostsPage);
+)(HomePage);
